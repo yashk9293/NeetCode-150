@@ -1,9 +1,9 @@
-// Question Link :- https://neetcode.io/problems/redundant-connection
+// Question Link :- https://leetcode.com/problems/redundant-connection
 // Redundant Connection
 
 
-// T.C = O()
-// S.C = O()
+// T.C = O(V + E)
+// S.C = O(V)
 class DSU {
 public:
     vector<int> parent;

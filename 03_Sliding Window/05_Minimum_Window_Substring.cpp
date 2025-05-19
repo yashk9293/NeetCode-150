@@ -10,25 +10,25 @@ public:
         if(m > s.size()) {
             return "";
         }
-        vector<int> freq(256, 0);
-        for(int i=0; i<m; i++) {
-            freq[t[i]]++;
+        unordered_map<char, int> mpp;
+        for(char &ch : t) {
+            mpp[ch]++;
         }
 
         int cnt = 0, minLen = 1e9, startIdx = -1;
         int i = 0, j = 0;
         while(j < s.size()) {
-            if(freq[s[j]] > 0) {
+            if(mpp[s[j]] > 0) {
                 cnt++;
             }
-            freq[s[j]]--;
+            mpp[s[j]]--;
             while(cnt == m) {
                 if(j-i+1 < minLen) {
                     minLen = j-i+1;
                     startIdx = i;
                 }
-                freq[s[i]]++;
-                if(freq[s[i]] > 0) {
+                mpp[s[i]]++;
+                if(mpp[s[i]] > 0) {
                     cnt--;
                 }
                 i++;
@@ -38,3 +38,4 @@ public:
         return startIdx == -1 ? "" : s.substr(startIdx, minLen);
     }
 };
+

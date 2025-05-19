@@ -3,7 +3,7 @@
 
 // Recursive
 // T.C = O(logN)
-// S.C = O(1) excluding tech stack
+// S.C = O(1) excluding stack space
 class Solution {
 public:
     int binarySearch(vector<int>& nums, int l, int r, int target) {

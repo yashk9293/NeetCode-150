@@ -26,20 +26,20 @@ public:
 class Solution {
 public:
     bool isPalindrome(string s) {
-        int start = 0;
-        int end = s.size()-1;
-        while(start <= end) {
-            while (start < end && !isalnum(s[start])) {
-                start++;
-            }
-            while (start < end && !isalnum(s[end])) {
-                end--;
-            }
-            if(tolower(s[start]) != tolower(s[end])) {
+        int i=0, j=s.length()-1;
+        while(i<=j) {
+            if(!isalnum(s[i])) {
+                i++;
+                continue;
+            } else if(!isalnum(s[j])) {
+                j--;
+                continue;
+            } else if(tolower(s[i]) == tolower(s[j])) {
+                i++;
+                j--;
+            } else {
                 return false;
             }
-            start++;
-            end--;
         }
         return true;
     }

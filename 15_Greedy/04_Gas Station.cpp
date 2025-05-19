@@ -54,15 +54,15 @@ public:
             return -1;
         }
 
-        int total  = 0;
-        int idx = 0;
+        int currGas  = 0;
+        int startIndex = 0;
         for(int i = 0; i<n; i++) {
-            total += gas[i] - cost[i];
-            if(total < 0) {
-                total = 0;
-                idx = i+1;
+            currGas += gas[i] - cost[i];
+            if(currGas < 0) {
+                startIndex = i+1;
+                currGas = 0;
             }
         }
-        return idx;
+        return startIndex;
     }
 };
